@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beze Mutfak  </title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #FFB6C1;
+            --accent-pink: #d41e7f;
+            --dark-text: #2C2C2C;
+            --light-text: #666;
+            --white: #FFFFFF;
+            --cream: #FAF9F6;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark-text);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #888;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--accent-pink);
+        }
+
+        .nav-menu .instagram-link {
+            font-size: 1.3rem;
+            color: var(--accent-pink);
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu .instagram-link:hover {
+            color: #E1306C;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('foto8.png') center/cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            color: var(--white);
+            z-index: 10;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+ .hero h1 {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 5.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: #25D366;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8rem 5%;
+            background: var(--white);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .section-title {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--dark-text);
+            font-weight: 400;
+        }
+
+        .section-text {
+            line-height: 1.9;
+            color: var(--light-text);
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1621303837174-89787a7d4729?w=800&q=80') center/cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-pink);
+        }
+
+        .service-card h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .service-card p {
+            color: var(--light-text);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            padding: 8rem 5%;
+            background: white;
+        }
+
+        .menu-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .menu-item {
+            position: relative;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .menu-item-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .menu-item:hover .menu-item-bg {
+            transform: scale(1.1);
+        }
+
+        .menu-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 2rem;
+            color: white;
+        }
+
+        .menu-item h3 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 8rem 5%;
+            background: var(--cream);
+        }
+
+         .gallery-filters {
+           display:flex;
+           justify-content:center;
+           gap:1rem;
+            margin: 3rem auto 2rem;
+            flex-wrap:wrap;
+        } 
+        .filter-btn{
+                        padding: 0.8rem 2rem;
+            border: 2px solid var(--accent-pink);
+            background: white;
+            color: var(--accent-pink);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Lato', sans-serif;
+        }
+         .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent-pink);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 30, 127, 0.3);
+        }
+
+        .gallery-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+       
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 8rem 5%;
+            background: var(--dark-text);
+            color: white;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-section .section-title {
+            color: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin: 4rem 0;
+        }
+
+        .contact-item {
+            padding: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: var(--accent-pink);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .contact-item p {
+            color: #ccc;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #999;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-pink);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 1.5rem;
+            }
+            
+            .nav-menu a {
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo-container img {
+                height: 55px !important;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <!-- LOGO BURAYA EKLENDİ -->
+            <div class="logo-container">
+                <a href="#anasayfa">
+                    <img src="logo.jpg" alt="Beze Mutfak Logo">
+                </a>
+            </div>
+            <!-- LOGO BİTİŞ -->
+            
+            <ul class="nav-menu">
+                <li><a href="#anasayfa" class="active">ANASAYFA</a></li>
+                <li><a href="#hakkimizda">HAKKIMIZDA</a></li>
+                <li><a href="#hizmetler">HİZMETLERİMİZ</a></li>
+                <li><a href="#galeri">GALERİ</a></li>
+                <li><a href="#iletisim">İLETİŞİM</a></li>
+                <li><a href="https://instagram.com/bezemutfak" target="_blank" class="instagram-link"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="anasayfa">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>Sevgiyle Hazırlanan<br>Ev Tadında Lezzetler</h1>
+            <a href="https://wa.me/905051448877" class="whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                <span>0505 144 88 77</span>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="hakkimizda">
+        <div class="section-container">
+            <div class="about-content">
+                <h2 class="section-title">Hakkımızda</h2>
+                <p class="section-text">Beze Mutfak,evde başlayan bir tutkunun gerçeğe dönüşmüş halidir.</p>
+                <p class="section-text">Yıllardır mutfağımda sevdiklerim için hazırladığım tatları,şimdi Beze Mutfak'ta sizlerle buluşturuyorum.Her ürünümüzde ev yapımı tadı,samimiyeti ve özeni hissetmenizi istiyorum.</p>
+                <p class="section-text">Katkı maddesi kullanmadan, günlük üretim anlayışıyla ve hijyen kurallarına büyük önem vererek çalışıyoruz.</p>
+               <p class="section-text">Beze Mutfak'ta her lezzet sevgiyle hazırlanır.</p>
+            </div>
+
+            <div class="about-image"></div>
+        </div>
+    </section>
+     <!-- Services Section -->
+    <section class="services-section" id="hizmetler">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="section-title">Hizmetlerimiz</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-category="Pastalar"> 
+                    <div class="service-icon">🎂</div>
+                    <h3>Pastalar</h3>
+                    <p>Her yaşa özel, kişiye özel tasarlanmış doğum günü pastaları. Çocuklardan yetişkinlere kadar herkesin hayalindeki pastayı tasarlıyoruz.</p>
+                </div>
+                <div class="service-card" data-category="Cupcake & Tatlılar">
+                    <div class="service-icon">🧁</div>
+                    <h3>Cupcake & Tatlılar</h3>
+                    <p>Renkli, lezzetli ve göz alıcı cupcake çeşitlerimiz. Organizasyonlarınız ve özel günleriniz için ideal mini lezzetler.</p>
+                </div>
+                <div class="service-card" data-category="Kurabiyeler">
+                    <div class="service-icon">🍪</div>
+                    <h3>Kurabiyeler</h3>
+                    <p>El yapımı, tereyağlı kurabiyeler. Kişiye özel tasarımlar ve özel ambalajlama seçenekleri mevcuttur.</p>
+                </div>
+                    <div class="service-card" data-category="Hamur İşi">
+                    <div class="service-icon">🥐</div>
+                    <h3>Hamur İşi</h3>
+                    <p>Taze ve lezzetli hamur işleri. Poğaça, börek ve daha fazlası ev lezzetiyle.</p>
+                </div>
+               
+        </div>
+    </section>
+
+   
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="galeri">
+        <div class="services-header">
+            <h2 class="section-title">Galeri</h2>
+        </div>
+        
+        <!-- Filtre Butonları -->
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">Tümü</button>
+            <button class="filter-btn" data-filter="Pastalar">Pastalar</button>
+            <button class="filter-btn" data-filter="Cupcake & Tatlılar">Cupcake & Tatlılar</button>
+            <button class="filter-btn" data-filter="Hamur İşi">Hamur İşi</button>
+            <button class="filter-btn" data-filter="Kurabiyeler">Kurabiyeler</button>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item" data-category="Cupcake & Tatlılar">
+                <img src="foto.png" alt="Cupcake & Tatlılar">
+            </div>
+            <div class="gallery-item" data-category="Kurabiyeler">
+                <img src="foto1.png" alt="Kurabiyeler">
+            </div>
+            <div class="gallery-item" data-category="Kurabiyeler">
+                <img src="foto2.png" alt="Kurabiyeler">
+            </div>
+            <div class="gallery-item" data-category="Kurabiyeler">
+                <img src="foto3.png" alt="Kurabiyeler">
+            </div>
+            <div class="gallery-item" data-category="Cupcake & Tatlılar">
+                <img src="foto4.png" alt="Cupcake & Tatlılar">
+            </div>
+            <div class="gallery-item" data-category="Hamur İşi">
+                <img src="foto5.png" alt="Hamur İşi">
+            </div>
+            <div class="gallery-item" data-category="Kurabiyeler">
+                <img src="foto6.png" alt="Kurabiyeler">
+            </div>
+            <div class="gallery-item" data-category="Pastalar">
+                <img src="foto7.png" alt="Pasta">
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="iletisim">
+        <div class="contact-container">
+            <h2 class="section-title">İletişim</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Telefon</h3>
+                    <p><a href="tel:+905051448877">0505 144 88 77</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p><a href="https://instagram.com/bezemutfak38/" target="_blank">@bezemutfak38</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Adres</h3>
+                    <p>Germir Mahallesi, 423. Sokak<br>Şehri Bahçe Sitesi, Akdağ Apt. No:4B<br>Melikgazi / Kayseri</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Beze Mutfak. Tüm hakları saklıdır.</p>
+            <div class="social-links">
+                <a href="https://instagram.com/bezemutfak" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/bezemutfak" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/905051448877" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/905051448877" target="_blank" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active menu on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Header shadow on scroll
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.05)';
+            }
+        });
+
+        // Fade in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .menu-item, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+            // HİZMETLER KARTLARINA TIKLAMA ÖZELLİĞİ
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Galeri bölümüne git
+                document.querySelector('#galeri').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Biraz bekle ki scroll tamamlansın, sonra filtreyi uygula
+                setTimeout(() => {
+                    filterGallery(category);
+                }, 800);
+            });
+        });
+
+        // GALERİ FİLTRELEME FONKSİYONU
+        function filterGallery(category) {
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            
+            // Buton aktif durumunu güncelle
+            filterBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Galeri öğelerini filtrele
+            galleryItems.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                    item.style.display = 'block';
+                } else {
+                    item.classList.add('hidden');
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // FİLTRE BUTONLARINA TIKLAMA
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                filterGallery(filter);
+            });
+        });
+    </script>
+</body>
+</html>
+    </script>
+</body>
+</html>
